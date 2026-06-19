@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+@if (movie) {
+
+  <!-- BACKDROP -->
+  <div
+    class="detail-backdrop"
+    [style.backgroundImage]="'url(' + imgBase + 'original' + movie.backdrop_path + ')'"
+  >
+    <div class="detail-overlay"></div>
+  </div>
+
+  <!-- MOVIE INFO -->
+  <div class="detail-container">
+
+    <!-- POSTER -->
+    <div class="detail-poster">
+      <img
+        [src]="imgBase + 'w300' + movie.poster_path"
+        [alt]="movie.title"
+      />
+    </div>
+
+    <!-- INFO -->
+    <div class="detail-info">
+      <h1>{{ movie.title }}</h1>
+
+      <div class="detail-meta">
+        <span>⭐ {{ movie.vote_average.toFixed(1) }}</span>
+        <span>📅 {{ movie.release_date }}</span>
+        <span>⏱ {{ movie.runtime }} min</span>
+      </div>
+
+      @if (movie.tagline) {
+        <p class="detail-tagline">"{{ movie.tagline }}"</p>
+      }
+
+      <p class="detail-overview">{{ movie.overview }}</p>
+
+      <!-- GENRES -->
+      <div class="detail-genres">
+        @for (genre of movie.genres; track genre.id) {
+          <span class="genre-tag">{{ genre.name }}</span>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- CAST -->
+  @if (cast.length > 0) {
+    <section class="movie-section">
+      <h2 class="section-title">🎭 Top Cast</h2>
+      <div class="cast-grid">
+        @for (person of cast; track person.id) {
+          <div class="cast-card">
+            <img
+              [src]="person.profile_path
+                ? imgBase + 'w185' + person.profile_path
+                : 'https://placehold.co/185x278?text=No+Image'"
+              [alt]="person.name"
+              loading="lazy"
+            />
+            <p class="cast-name">{{ person.name }}</p>
+            <p class="cast-character">{{ person.character }}</p>
+          </div>
+        }
+      </div>
+    </section>
+  }
+
+}
+
+<footer class="footer">
+  <p>© 2025 MovieDB Clone. Built with TMDb API.</p>
+</footer>

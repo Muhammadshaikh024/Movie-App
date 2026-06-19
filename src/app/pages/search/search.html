@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<section class="movie-section">
+  <h2 class="section-title">
+    🔍 Results for: "{{ query }}"
+  </h2>
+
+  @if (movies.length === 0) {
+    <p class="no-results">No results found.</p>
+  }
+
+  <div class="movies-grid">
+    @for (movie of movies; track movie.id) {
+      <div class="movie-card" [routerLink]="['/movie', movie.id]">
+        <img
+          [src]="movie.poster_path
+            ? imgBase + 'w300' + movie.poster_path
+            : 'https://placehold.co/300x450?text=No+Image'"
+          [alt]="movie.title"
+          loading="lazy"
+        />
+        <div class="movie-card-info">
+          <h3>{{ movie.title }}</h3>
+          <span>⭐ {{ movie.vote_average.toFixed(1) }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 MovieDB Clone. Built with TMDb API.</p>
+</footer>

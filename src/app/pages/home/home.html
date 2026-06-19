@@ -1,0 +1,138 @@
+<app-navbar></app-navbar>
+
+<!-- HERO SLIDER -->
+@if (heroMovies.length > 0) {
+  <section
+    class="hero"
+    [style.backgroundImage]="'url(' + imgBase + 'original' + heroMovies[currentHeroIndex].backdrop_path + ')'"
+  >
+    <div class="hero-overlay"></div>
+
+    <!-- LEFT ARROW -->
+    <button class="hero-arrow hero-arrow-left" (click)="prevHero()">❮</button>
+
+    <!-- CONTENT -->
+    <div class="hero-content">
+      <h1>{{ heroMovies[currentHeroIndex].title }}</h1>
+      <p>{{ heroMovies[currentHeroIndex].overview }}</p>
+      <button
+        class="hero-btn"
+        [routerLink]="['/movie', heroMovies[currentHeroIndex].id]"
+      >
+        ▶ View Details
+      </button>
+    </div>
+
+    <!-- RIGHT ARROW -->
+    <button class="hero-arrow hero-arrow-right" (click)="nextHero()">❯</button>
+
+    <!-- DOTS -->
+    <div class="hero-dots">
+      @for (movie of heroMovies; track movie.id; let i = $index) {
+        <span
+          class="hero-dot"
+          [class.active]="i === currentHeroIndex"
+          (click)="goToHeroSlide(i)"
+        ></span>
+      }
+    </div>
+  </section>
+}
+
+<!-- TRENDING CAROUSEL -->
+<section class="movie-section">
+  <div class="section-header">
+    <h2 class="section-title">🔥 Trending This Week</h2>
+    <div class="carousel-btns">
+      <button (click)="scrollCarousel('trending', 'left')">❮</button>
+      <button (click)="scrollCarousel('trending', 'right')">❯</button>
+    </div>
+  </div>
+  <div class="carousel" id="trending">
+    @for (movie of trendingMovies; track movie.id) {
+      <div class="carousel-card" [routerLink]="['/movie', movie.id]">
+        <img [src]="imgBase + 'w300' + movie.poster_path" [alt]="movie.title" loading="lazy"/>
+        <div class="movie-card-info">
+          <h3>{{ movie.title }}</h3>
+          <span>⭐ {{ movie.vote_average.toFixed(1) }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- NOW PLAYING CAROUSEL -->
+<section class="movie-section">
+  <div class="section-header">
+    <h2 class="section-title">🎬 Now Playing</h2>
+    <div class="carousel-btns">
+      <button (click)="scrollCarousel('nowplaying', 'left')">❮</button>
+      <button (click)="scrollCarousel('nowplaying', 'right')">❯</button>
+    </div>
+  </div>
+  <div class="carousel" id="nowplaying">
+    @for (movie of nowPlayingMovies; track movie.id) {
+      <div class="carousel-card" [routerLink]="['/movie', movie.id]">
+        <img [src]="imgBase + 'w300' + movie.poster_path" [alt]="movie.title" loading="lazy"/>
+        <div class="movie-card-info">
+          <h3>{{ movie.title }}</h3>
+          <span>⭐ {{ movie.vote_average.toFixed(1) }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- UPCOMING CAROUSEL -->
+<section class="movie-section">
+  <div class="section-header">
+    <h2 class="section-title">🔜 Upcoming Movies</h2>
+    <div class="carousel-btns">
+      <button (click)="scrollCarousel('upcoming', 'left')">❮</button>
+      <button (click)="scrollCarousel('upcoming', 'right')">❯</button>
+    </div>
+  </div>
+  <div class="carousel" id="upcoming">
+    @for (movie of upcomingMovies; track movie.id) {
+      <div class="carousel-card" [routerLink]="['/movie', movie.id]">
+        <img
+          [src]="movie.poster_path
+            ? imgBase + 'w300' + movie.poster_path
+            : 'https://placehold.co/300x450?text=Coming+Soon'"
+          [alt]="movie.title"
+          loading="lazy"
+        />
+        <div class="movie-card-info">
+          <h3>{{ movie.title }}</h3>
+          <span>📅 {{ movie.release_date }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- TOP RATED CAROUSEL -->
+<section class="movie-section">
+  <div class="section-header">
+    <h2 class="section-title">⭐ Top Rated</h2>
+    <div class="carousel-btns">
+      <button (click)="scrollCarousel('toprated', 'left')">❮</button>
+      <button (click)="scrollCarousel('toprated', 'right')">❯</button>
+    </div>
+  </div>
+  <div class="carousel" id="toprated">
+    @for (movie of topRatedMovies; track movie.id) {
+      <div class="carousel-card" [routerLink]="['/movie', movie.id]">
+        <img [src]="imgBase + 'w300' + movie.poster_path" [alt]="movie.title" loading="lazy"/>
+        <div class="movie-card-info">
+          <h3>{{ movie.title }}</h3>
+          <span>⭐ {{ movie.vote_average.toFixed(1) }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 MovieDB Clone. Built with TMDb API.</p>
+</footer>

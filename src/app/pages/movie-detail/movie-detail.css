@@ -1,0 +1,134 @@
+.detail-backdrop {
+  position: relative;
+  height: 420px;
+  background-size: cover;
+  background-position: center top;
+}
+
+.detail-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(13,13,13,0.3), #0d0d0d);
+}
+
+.detail-container {
+  display: flex;
+  gap: 40px;
+  padding: 0 40px 40px;
+  margin-top: -120px;
+  position: relative;
+  z-index: 2;
+}
+
+.detail-poster img {
+  width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+.detail-info {
+  flex: 1;
+  padding-top: 60px;
+}
+
+.detail-info h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.detail-meta span {
+  color: #01b4e4;
+  font-weight: bold;
+}
+
+.detail-tagline {
+  font-style: italic;
+  color: #888;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.detail-overview {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.detail-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.genre-tag {
+  background: #1a1a1a;
+  border: 1px solid #01b4e4;
+  color: #01b4e4;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ── CAST ── */
+.movie-section {
+  padding: 40px;
+}
+
+.section-title {
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+.cast-grid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+
+.cast-card {
+  min-width: 120px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.cast-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.cast-name {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 6px 2px;
+  color: #fff;
+}
+
+.cast-character {
+  font-size: 11px;
+  color: #888;
+  padding: 0 6px 8px;
+}
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: #555;
+  font-size: 13px;
+  border-top: 1px solid #1a1a1a;
+  margin-top: 40px;
+}

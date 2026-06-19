@@ -1,0 +1,207 @@
+/* ── HERO SLIDER ── */
+.hero {
+  position: relative;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0d0d0d 10%, transparent 70%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.hero-content p {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero-btn {
+  background: #01b4e4;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hero-btn:hover {
+  background: #0199c4;
+}
+
+/* HERO ARROWS */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  padding: 12px 16px;
+  cursor: pointer;
+  z-index: 3;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.hero-arrow:hover {
+  background: rgba(1, 180, 228, 0.7);
+}
+
+.hero-arrow-left  { left: 16px; }
+.hero-arrow-right { right: 16px; }
+
+/* HERO DOTS */
+.hero-dots {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero-dot.active {
+  background: #01b4e4;
+}
+
+/* ── SECTIONS ── */
+.movie-section {
+  padding: 40px 40px 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 22px;
+  color: #fff;
+}
+
+/* CAROUSEL ARROW BUTTONS */
+.carousel-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-btns button {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 6px 14px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.carousel-btns button:hover {
+  background: #01b4e4;
+  border-color: #01b4e4;
+}
+
+/* ── CAROUSEL ── */
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 12px;
+  /* hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── CAROUSEL CARD ── */
+.carousel-card {
+  width: 160px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+  
+}
+
+.carousel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(1, 180, 228, 0.2);
+}
+
+.carousel-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.movie-card-info {
+  padding: 10px;
+}
+
+.movie-card-info h3 {
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card-info span {
+  font-size: 12px;
+  color: #01b4e4;
+  font-weight: bold;
+}
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: #555;
+  font-size: 13px;
+  border-top: 1px solid #1a1a1a;
+  margin-top: 40px;
+}

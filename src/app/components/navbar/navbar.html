@@ -1,0 +1,23 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="/" class="logo">🎬 MovieDB</a>
+    <ul class="nav-links">
+      <li><a href="/">Movies</a></li>
+      <li><a href="#">TV Shows</a></li>
+      <li><a href="#">Trending</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Search movies..."
+        [(ngModel)]="searchQuery"
+        (keydown)="onKeyDown($event)"
+      />
+      <button (click)="onSearch()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+</nav>
