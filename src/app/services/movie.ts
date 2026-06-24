@@ -11,7 +11,7 @@ export class MovieService {
   private BASE_URL = 'https://api.themoviedb.org/3';
   public IMG_BASE = 'https://image.tmdb.org/t/p/';
 
-  constructor(private apiService: ApiService) {} // ← ApiService not HttpClient
+  constructor(private apiService: ApiService) {} //instead of calling http client here, im calling ApiService here and then it will handle the http client
 
   getTrending(): Observable<any> {
     return this.apiService.get(`${this.BASE_URL}/trending/movie/week?api_key=${this.API_KEY}`);
